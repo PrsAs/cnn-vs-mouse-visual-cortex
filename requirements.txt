@@ -1,6 +1,6 @@
 torch>=2.0
 torchvision>=0.15
 allensdk
-numpy<1.24
+numpy<1.24  # required by allensdk; newer versions fail to build
 scipy
 matplotlib
