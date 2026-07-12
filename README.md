@@ -37,17 +37,17 @@ Convolutional neural networks trained on image classification were never designe
 | VGG16 | block2 | 0.122 | ~54% |
 | ResNet-50 | layer4 | 0.063 | ~28% |
 
+Older, smaller, less accurate-at-classification architectures aligned *better* with mouse VISp than newer, larger, more accurate ones. Classification performance and brain-alignment are not the same axis, and can trade off.
+
 ### Brain-alignment across architectures and depth
 ![RSA by layer across models](figures/stage3b_multi_model.png)
-
-Older, smaller, less accurate-at-classification architectures aligned *better* with mouse VISp than newer, larger, more accurate ones. Classification performance and brain-alignment are not the same axis, and can trade off.
 
 **2. Where the model and brain disagree**
 
 The largest model-brain disagreements were consistently same-category image pairs (two elephant photos, two big-cat photos, two tree/branch photos) that the model treats as similar but the brain does not, differing in pose, lighting, and exact texture. This suggests the model has learned an invariance to exactly the variation the brain still encodes — a direct consequence of training for category-level classification.
 
-### Training vs. architecture control
-![Trained vs untrained](figures/stage3d_random_baseline.png)
+### Where the model and brain disagree
+![Top disagreement pairs](figures/stage4_disagreements.png)
 
 **3. Training vs. architecture (untrained-network control)**
 
@@ -58,12 +58,10 @@ The largest model-brain disagreements were consistently same-category image pair
 | layer3 | 0.098 | 0.112 |
 | layer4 | 0.128 | 0.134 |
 
-### Where the model and brain disagree
-![Top disagreement pairs](figures/stage4_disagreements.png)
-
 At the deepest layers, an untrained, randomly-initialized network matched or slightly exceeded the trained network's brain-alignment. Training provided a modest early-layer benefit but essentially no advantage — and possibly a small cost — at greater depth. This is consistent with convolutional architecture alone (independent of learning) producing filters that resemble low/mid-level visual statistics, while ImageNet training pushes representations toward category-invariance that moves them further from what VISp appears to encode.
 
-
+### Training vs. architecture control
+![Trained vs untrained](figures/stage3d_random_baseline.png)
 
 ## Interpretation
 
